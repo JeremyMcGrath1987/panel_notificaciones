@@ -34,10 +34,10 @@ export default {
   height: 1007px;
 }
 .panel-screen {
-  width: 1132px;
-  height: 640px;
+  width: 632px;
+  height: 340px;
   position: absolute;
-  bottom: 238px;
+  top: 100px;
   right: 100px;
 }
 

@@ -5,22 +5,22 @@
     </div>
     <div>
       <ul
-        class="border mt-2 mx-4 p-4"
+        class="border mt-2 mx-4 p-4 altura relative"
         v-for="(notification, index) in singleNotification"
         :key="index"
       >
-        <div class="float-right w-64">
-          <button class="block border">Botón marcar ruta</button>
-          <button class="block border mt-1">Botón coger notificación</button>
-          <button class="block border mt-1">¿Botón avisar?</button>
-          <button class="block border mt-1">Botón terminar</button>
+        <div class="absolute inset-y-0 right-0 w-40 mr-4 altura">
+          <button class="block border mt-2">Botón marcar ruta</button>
+          <button class="block border mt-2">Botón coger notificación</button>
+          <button class="block border mt-2">¿Botón avisar?</button>
+          <button class="block border mt-2">Botón terminar</button>
         </div>
-        <li>{{ notification.id }}</li>
-        <li>{{ notification.playerId }}</li>
-        <li>{{ notification.title }}</li>
-        <li>{{ notification.message }}</li>
-        <li v-if="notification.agent!==undefined">{{ notification.agent }}</li>
-        <li v-else><p>No está acudiendo ningún agente</p></li>
+        <li class="ancho">{{ notification.id }}</li>
+        <li class="ancho">{{ notification.playerId }}</li>
+        <li class="ancho">{{ notification.title }}</li>
+        <li class="text-base ancho">{{ notification.message }}</li>
+        <li v-if="notification.agent!==undefined" class="text-xs">{{ notification.agent }}</li>
+        <li v-else class="text-xs ancho"><p>No está acudiendo ningún agente</p></li>
       </ul>
     </div>
   </div>
@@ -83,5 +83,11 @@ tr:nth-child(odd) {
 }
 .separation {
   margin-left: 2.4rem;
+}
+.altura {
+   height: 14rem;
+}
+.ancho {
+  width: 24rem;
 }
 </style>
