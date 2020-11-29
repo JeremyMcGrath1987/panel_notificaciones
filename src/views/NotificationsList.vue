@@ -5,17 +5,16 @@
     </div>
     <div>
       <ul
-        class="border mt-2 mx-4 p-4 altura relative"
+        class="border mt-2 mx-4 p-10 altura relative fondo"
         v-for="(notification, index) in singleNotification"
         :key="index"
       >
-        <div class="absolute inset-y-0 right-0 w-40 mr-4 altura">
-          <button class="block border mt-2">Botón marcar ruta</button>
-          <button class="block border mt-2">Botón coger notificación</button>
-          <button class="block border mt-2">¿Botón avisar?</button>
-          <button class="block border mt-2">Botón terminar</button>
+        <div class="absolute inset-y-0 right-0 w-40 px-2 py-10 altura ">
+          <button class="block border mt-2 w-32">marcar ruta</button>
+          <button class="block border mt-2 w-32">coger notificación</button>
+          <button class="block border mt-2 w-32">¿avisar?</button>
+          <button class="block border mt-2 w-32">terminar</button>
         </div>
-        <li class="ancho">{{ notification.id }}</li>
         <li class="ancho">{{ notification.playerId }}</li>
         <li class="ancho">{{ notification.title }}</li>
         <li class="text-base ancho">{{ notification.message }}</li>
@@ -89,5 +88,8 @@ tr:nth-child(odd) {
 }
 .ancho {
   width: 24rem;
+}
+.fondo{
+  background: radial-gradient(circle, rgba(2, 100, 206, 1) 0%, rgba(5, 100, 244, 1) 0%, rgba(5, 88, 231, 1) 100%);
 }
 </style>

@@ -9,7 +9,7 @@
       class="panel-screen overflow-y-scroll"
       :style="{
         background:
-          'url('+'), radial-gradient(circle, rgba(2, 100, 206, 1) 0%, rgba(5, 100, 244, 1) 0%, rgba(5, 88, 231, 1) 100%)'
+          'url('+'), radial-gradient(circle, rgba(2, 100, 206, .5) 0%, rgba(5, 100, 244, .5) 0%, rgba(5, 88, 231, .5) 100%)'
       }"
     >
       <transition name="fade">
