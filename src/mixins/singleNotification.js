@@ -1,6 +1,6 @@
 export default {
   computed: {
-    singleNotify: function() {
+    singleNotification: function() {
       return this.$store.state.notificationsList.data;
     }
   }

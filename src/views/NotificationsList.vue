@@ -1,111 +1,55 @@
 <template>
-  <div class="filesemployees flex flex-col flex-no-wrap">
-    <div class="tob-bar flex flex-row items-center w-full mt-8 py-2">
-      <topbar />
+  <div class="flex flex-col flex-no-wrap">
+    <div class="flex flex-row items-center w-full mt-4 px-8 py-2">
+      <file-menu active="notificationsList" />
     </div>
-    <div class="file-details-content flex flex-row">
-      <div class="flex flex-wrap py-4 pl-4">
-        <file-menu active="files" />
-      </div>
-      <div class="file-content py-4 pr-2 flex flex-col w-1/2 separation">
-        <input
-          v-model="search"
-          class="mt-2 mb-4 appearance-none border border-recto-light w-full p-2 uppercase focus:outline-none placeholder-gray-300 bg-gray-700"
-          type="text"
-          placeholder="Buscar empresa"
-        />
-        <table class="border-b border-panel-dark"
-        v-if="
-              
-              filteredList.length > 0
-            "
-        >
-          <tbody>
-            <tr class="border border-panel-dark font-bold bg-panel-dark">
-              <td></td>
-              <td class="px-1 py-2">Nombre de Empresa</td>
-              <td class="px-1 py-2">ID de Empresa</td>
-              <td class="px-1 py-2"></td>
-            </tr>
-            <tr></tr>
-            <tr
-              class="border-l border-r border-panel-dark"
-              v-for="(empresa, index) in filteredList"
-              :key="index"
-              :file="empresa"
-            >
-              <td></td>
-              <td class="px-2 py-2">{{ empresa.name }}</td>
-              <td class="px-2 py-2">{{ empresa.id }}</td>
-              <td class="px-8 py-2">
-                <button
-                  :value="index"
-                  class="button-dismiss border-panel-light hover:text-gray-500"
-                  @click="
-                    factionConfig(empresa.id)
-                  "
-                >
-                  Configurar
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="border-panel-dark"
-        v-else>
-          <tbody>
-            <tr class="border border-panel-dark font-bold bg-panel-dark">
-              <td></td>
-              <td class="px-1 py-2">Nombre de Empresa</td>
-              <td class="px-1 py-2">ID de Empresa</td>
-              <td class="px-1 py-2"></td>
-            </tr>
-            <tr></tr>
-            <td></td>
-            <div class="px-1 py-2"><p>no hay coincidencias en la búsqueda.</p></div>
-          </tbody>
-        </table>
-        
-      </div>
+    <div>
+      <ul
+        class="border mt-2 mx-4 p-4"
+        v-for="(notification, index) in singleNotification"
+        :key="index"
+      >
+        <div class="float-right w-64">
+          <button class="block border">Botón marcar ruta</button>
+          <button class="block border mt-1">Botón coger notificación</button>
+          <button class="block border mt-1">¿Botón avisar?</button>
+          <button class="block border mt-1">Botón terminar</button>
+        </div>
+        <li>{{ notification.id }}</li>
+        <li>{{ notification.playerId }}</li>
+        <li>{{ notification.title }}</li>
+        <li>{{ notification.message }}</li>
+        <li v-if="notification.agent!==undefined">{{ notification.agent }}</li>
+        <li v-else><p>No está acudiendo ningún agente</p></li>
+      </ul>
     </div>
   </div>
 </template>
 <script>
-import formatPrice from "../mixins/formatPrice";
 import fileMenu from "../components/fileMenu";
-import singleFaction from "../mixins/singleFaction";
-import topbar from "../components/topbar";
+import singleNotification from "../mixins/singleNotification";
 export default {
-  name: "filesemployees",
-  components: { fileMenu, topbar },
-  mixins: [formatPrice, singleFaction],
-  data: () => {
-    return {
-      search: ""
-    };
-  },
+  name: "notificationList",
+  components: { fileMenu },
+  mixins: [singleNotification],
   async mounted() {
     /* await this.$store.dispatch("loadingScreen/ISLOADING", true); */
     /* // eslint-disable-next-line no-undef
     mp.trigger("callServerEvent","getAllFactions"); */
     await this.$store.dispatch("loadingScreen/ISLOADING", false);
   },
-  computed: {
-    filteredList() {
-      return this.$store.state.factionList.data.filter((resultado) => {
-        let d = resultado.name.toLowerCase() + " " + resultado.id.toLowerCase();
-        let s = this.search.toLowerCase();
-        return d.includes(s);
-      });
-    },
-  },
   methods: {
     factionConfig: async function (id) {
       /* // eslint-disable-next-line no-undef
       mp.trigger("callServerEvent","getFaccion",{id: id}); */
       /* await this.$store.dispatch("loadingScreen/ISLOADING", true); */
-      await this.$router.push({ name: "FactionConfiguration"});
+      await this.$router.push({ name: "FactionConfiguration" });
       console.log(id);
+      /* id: number,
+title: string,
+message: string,
+		agent: undefined or string,
+		playerId: number */
     },
   },
 };

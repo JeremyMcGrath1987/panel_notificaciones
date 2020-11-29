@@ -11,7 +11,7 @@ const routes = [
     component: NotificationsList
   },
   {
-    path: "/otificationshistory",
+    path: "/notificationshistory",
     name: "NotificationsHistory",
     component: () => import("../views/NotificationsHistory")
   }
