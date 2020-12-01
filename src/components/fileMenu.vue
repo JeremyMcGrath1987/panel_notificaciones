@@ -7,7 +7,7 @@
         :class="{
           'border-b-2 border-panel-normal': active === 'notificationsList',
         }"
-        >Notificationes Activas</a
+        >Avisos Activos</a
       >
     </li>
     <li class="my-10" style="display: inline">
@@ -17,7 +17,7 @@
         :class="{
           'border-b-2 border-panel-normal': active === 'notificationsHistory',
         }"
-        >Historial Notificationes</a
+        >Historial Avisos</a
       >
     </li>
     <button 
