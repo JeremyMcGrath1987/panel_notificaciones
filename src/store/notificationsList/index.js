@@ -18,7 +18,7 @@ export default {
         id: 1,
         title: "titulo",
         message: "Estoy viendo como estan atracando a un hombre a punta de pistola y el tio va vestido con unpantalon negro, mascara de payaso y chaqueta gris, huye en una moto manchez blanca",
-        agent: undefined,
+        agent: "Jeremy O'Conner",
         playerId: 150
       },
       {

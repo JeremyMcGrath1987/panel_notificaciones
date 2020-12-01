@@ -21,7 +21,7 @@
       >
     </li>
     <button 
-    class="hover:text-gray-500 cursor-pointer ml-16"
+    class="hover:text-gray-500 cursor-pointer ml-32"
     @click="closeNofies">Cerrar</button>
   </ul>
 </template>
