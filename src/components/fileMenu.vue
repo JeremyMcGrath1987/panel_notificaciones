@@ -1,9 +1,9 @@
 <template>
-  <ul class="file-details">
+  <ul class="file-details w-full">
     <li class="my-10 mr-10" style="display: inline">
       <a
         @click="goto('NotificationsList')"
-        class="hover:text-gray-500 cursor-pointer"
+        class="hover:text-gray-300 cursor-pointer"
         :class="{
           'border-b-2 border-panel-normal': active === 'notificationsList',
         }"
@@ -13,7 +13,7 @@
     <li class="my-10" style="display: inline">
       <a
         @click="goto('NotificationsHistory')"
-        class="hover:text-gray-500 cursor-pointer"
+        class="hover:text-gray-300 cursor-pointer"
         :class="{
           'border-b-2 border-panel-normal': active === 'notificationsHistory',
         }"
@@ -21,7 +21,7 @@
       >
     </li>
     <button 
-    class="hover:text-gray-500 cursor-pointer ml-32"
+    class="hover:text-gray-300 cursor-pointer ml-64"
     @click="closeNofies">Cerrar</button>
   </ul>
 </template>

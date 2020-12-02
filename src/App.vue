@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <!-- <img
-      src="./assets/images/rugged_tablet.png"
-      alt="rugged tablet"
-      class="absolute bottom-0 right-0 z-50 pointer-events-none rugged-tablet"
-    /> -->
     <div
       class="panel-screen overflow-y-scroll"
       :style="{
@@ -37,8 +32,8 @@ export default {
   width: 632px;
   height: 340px;
   position: absolute;
-  top: 100px;
-  right: 100px;
+  top: 25px;
+  right: 25px;
 }
 
 /* width */
